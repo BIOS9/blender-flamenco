@@ -29,7 +29,7 @@ RUN curl -L "$FLAMENCO_BIN_URL" -o flamenco.tar.gz && \
 
 # Make writable non-root working dir
 WORKDIR /app
-chown -R flamenco:flamenco /app
+RUN chown -R flamenco:flamenco /app
 USER flamenco
 
 # Expose the default Flamenco Manager port
