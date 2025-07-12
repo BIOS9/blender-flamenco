@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libxxf86vm1 \
     libsm6 \
     libice6 \
+    libxkbcommon0 \
     && rm -rf /var/lib/apt/lists/*
 
 # Create non-root user
