@@ -17,10 +17,9 @@ RUN useradd -ms /bin/bash flamenco
 WORKDIR /opt
 RUN curl -L "$FLAMENCO_BIN_URL" -o flamenco.tar.xz && \
     mkdir /opt/flamenco && \
-    tar -xf flamenco.tar.xz -C /opt/flamenco && \
+    tar -xf flamenco.tar.xz -C /opt/flamenco --strip-components=1 && \
     rm flamenco.tar.xz && \
-    chown -R flamenco:flamenco /opt/flamenco && \
-    chmod a+x /opt/flamenco/flamenco-worker
+    chown -R flamenco:flamenco /opt/flamenco
 
 RUN ls -la /opt
 RUN ls -la /opt/flamenco
