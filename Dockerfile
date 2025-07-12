@@ -8,6 +8,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     xz-utils \
     curl \
+    libx11-6 \
+    libxext6 \
+    libxi6 \
+    libxrender1 \
+    libgl1 \
+    libglx0 \
+    libxxf86vm1 \
+    libsm6 \
+    libice6 \
+    libxkbcommon0 \
     && rm -rf /var/lib/apt/lists/*
 
 # Create non-root user
@@ -37,6 +47,7 @@ USER flamenco
 EXPOSE 8080
 
 # Smoke test to check the app is actually present and runs
+RUN blender --version
 RUN flamenco-worker -version
 RUN flamenco-manager -version
 
