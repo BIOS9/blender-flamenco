@@ -36,6 +36,7 @@ USER flamenco
 EXPOSE 8080
 
 # Smoke test to check the app is actually present and runs
+RUN blender --version
 RUN flamenco-worker -version
 RUN flamenco-manager -version
 
