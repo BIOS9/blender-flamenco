@@ -6,6 +6,7 @@ ENV BLENDER_BIN_URL=https://download.blender.org/release/Blender4.4/blender-4.4.
 # Install required dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
+    xz-utils \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
