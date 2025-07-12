@@ -21,15 +21,14 @@ RUN curl -L "$FLAMENCO_BIN_URL" -o flamenco.tar.xz && \
     rm flamenco.tar.xz && \
     chown -R flamenco:flamenco /opt/flamenco
 
-RUN ls -la /opt
-RUN ls -la /opt/flamenco
-
-# Switch to user
 USER flamenco
-WORKDIR /opt/flamenco/flamenco-worker
+WORKDIR /opt/flamenco
 
 # Expose the default Flamenco Manager port
 EXPOSE 8080
 
+# Smoke test to check the app is actually present and runs
+RUN flamenco-worker -version
+
 # Start the manager
-CMD ["./flamenco-manager"]
+CMD ["./flamenco-worker"]
