@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Create non-root user
-RUN useradd -ms /bin/bash flamenco
+# RUN useradd -ms /bin/bash flamenco
 
 # Download and extract blender
 RUN curl -L "$BLENDER_BIN_URL" -o blender.tar.xz && \
@@ -40,8 +40,8 @@ RUN curl -L "$FLAMENCO_BIN_URL" -o flamenco.tar.gz && \
 
 # Make writable non-root working dir
 WORKDIR /app
-RUN chown -R flamenco:flamenco /app
-USER flamenco
+# RUN chown -R flamenco:flamenco /app
+# USER flamenco
 
 # Expose the default Flamenco Manager port
 EXPOSE 8080
